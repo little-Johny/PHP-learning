@@ -34,7 +34,7 @@ php-learning/
 
 | Carpeta                          | Curso/Proyecto                                       | Estado      |
 |----------------------------------|------------------------------------------------------|-------------|
-| [`php-practico/`](./php-practico/)           | Curso practico de PHP                                 | ✅ En curso |
+| [`php-practico/`](./php-practico/)           | Curso practico de PHP                                 | Concluido |
 | `02-funciones-y-scope/`          | Closures y Scope en PHP                             | ✅ En curso |
 | `03-poo-php/`                    | Programación Orientada a Objetos                    | ⏳ Pendiente |
 | `04-php-mysql/`                  | CRUD y conexión con MySQL                           | ⏳ Pendiente |

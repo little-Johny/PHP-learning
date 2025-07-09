@@ -1,4 +1,4 @@
-# 📘 Curso: [Nombre del curso]
+# 📘 Curso: PHP-practico
 
 Este directorio contiene los ejercicios y apuntes del curso PHP-Practico, donde practicare con el lenguaje PHP en un micro proyecto.
 
@@ -10,8 +10,12 @@ Este directorio contiene los ejercicios y apuntes del curso PHP-Practico, donde 
 php-practico/
 │
 ├── concepts/
-
 ├── control-structures/
+├── exercises/
+├── exercises2/
+├── forms/
+├── functions/
+├── projects/
 │
 └── README.md
 ```
@@ -34,8 +38,8 @@ Si estás usando CLI:
 php src/archivo.php
 ```
 ## Temas cubiertos
-- [Operadores logicos](./logic-operators.php)
-- [Operadores matematicos](./math-operators.php)
+- [Operadores logicos](./concepts/logic-operators.php)
+- [Operadores matematicos](./concepts/math-operators.php)
 
 
 
@@ -43,8 +47,7 @@ php src/archivo.php
 
 ## Estado del curso
 
-🟢 En progreso
-
+TERMINADO
 ## 📄 Licencia
 
 MIT © Johny Molano
