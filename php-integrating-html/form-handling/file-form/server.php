@@ -7,7 +7,7 @@ var_dump($_FILES);
 die(); */
 
 // Data reception
-if ($_SERVER["method"] === "POST") {
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
   if ((isset($_FILES["album_pic"]) && $_FILES["album-pic"]["error"] === 0) || (isset($_FILES["song-audio"]) && $_FILES["song-audio"]["error"] === 0)) {
     $uploadsFolder = __DIR__ . "/uploads/"; //Absolute path
 
