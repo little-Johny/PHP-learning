@@ -14,7 +14,7 @@ function sendMail($subject, $body, $email, $name, $html = false)
   $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
   $phpmailer->Port = 465;
   $phpmailer->Username = 'molano.johny721@gmail.com';
-  $phpmailer->Password = 'rybu iryo gtmt odhw';
+  $phpmailer->Password = $_ENV["GMAIL_PASS"];
 
   $phpmailer->SMTPDebug = 2;
   $phpmailer->Debugoutput = 'html';
