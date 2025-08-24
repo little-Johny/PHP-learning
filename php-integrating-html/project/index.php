@@ -37,16 +37,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     sendMail("New Event", $body, $data["email"], $data["name"], true);
 
     $status = "success";
-
   } else {
     $status = "error";
   }
-
 }
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,25 +55,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 
 <body>
-  <?php if ($status == "success"): ?>
-    <div class="alert success" style="display: block;">
-      <h3>Email sent successfully</h3>
-    </div>
-  <?php endif; ?>
 
-  <?php if ($status == "error"): ?>
-    <div class="alert error" style="display: block;">
-      <h3>something went wrong</h3>
-    </div>
-  <?php endif; ?>
 
   <form action="./" method="post" enctype="multipart/form-data">
     <h1>Schedule your event</h1>
 
     <section class="first-container">
-      <div>
+      <div class="personal">
         <h3>personal data</h3>
-        <div class="input-container personal">
+        <div class="input-container ">
           <div class="input-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name">
@@ -96,28 +83,67 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
       </div>
 
-      <div class="">
+      <div class="preferences">
         <h3>Preferences</h3>
-        <div class="input-container perferences">
+        <div class="input-container">
           <div class="input-group">
             <label for="color">Color</label>
             <input type="color" name="color" id="color">
           </div>
-          <div class="">
-            <label for="">Country</label>
-            <input type="radio" name="country" id="colombia" value="colombia">
-            <input type="radio" name="country" id="mexico" value="mexico">
-            <input type="radio" name="country" id="venezuela" value="venezuela">
-            <input type="radio" name="country" id="brazil" value="brazil">
+          <div class="input-group">
+            <p>Country</p>
+
+            <label for="colombia">
+              <input type="radio" name="country" id="colombia" value="colombia">
+              Colombia 🇨🇴
+            </label>
+
+            <label for="mexico">
+              <input type="radio" name="country" id="mexico" value="mexico">
+              Mexico 🇲🇽
+            </label>
+
+            <label for="venezuela">
+              <input type="radio" name="country" id="venezuela" value="venezuela">
+              Venezuela 🇻🇪
+            </label>
+
+            <label for="brazil">
+              <input type="radio" name="country" id="brazil" value="brazil">
+              Brazil 🇧🇷
+            </label>
           </div>
-          <div class="">
-            <label for="">Topics of interest</label>
-            <input type="checkbox" name="topics[]" id="ia" value="ia">
-            <input type="checkbox" name="topics[]" id="backend" value="backend">
-            <input type="checkbox" name="topics[]" id="cloud" value="cloud">
-            <input type="checkbox" name="topics[]" id="devops" value="devops">
-            <input type="checkbox" name="topics[]" id="frontend" value="frontend">
-            <input type="checkbox" name="topics[]" id="segurity" value="segurity">
+
+          <div class="checkboxes">
+            <h4>Topics of interest</h4>
+            <label for="ia">
+              <input type="checkbox" name="topics[]" id="ia" value="ia">
+              IA
+            </label>
+            <label for="backend">
+              <input type="checkbox" name="topics[]" id="backend" value="backend">
+              Backend
+            </label>
+
+            <label for="cloud">
+              <input type="checkbox" name="topics[]" id="cloud" value="cloud">
+              Cloud
+            </label>
+
+            <label for="devops">
+              <input type="checkbox" name="topics[]" id="devops" value="devops">
+              Devops
+            </label>
+
+            <label for="frontend">
+              <input type="checkbox" name="topics[]" id="frontend" value="frontend">
+              Frontend
+            </label>
+
+            <label for="segurity">
+              <input type="checkbox" name="topics[]" id="segurity" value="segurity">
+              Segurity
+            </label>
           </div>
         </div>
       </div>
@@ -126,17 +152,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h3>Additional information</h3>
     <div class="input-container">
       <div class="input-group">
-        <label for="guests">Main guests</label>
-        <input type="text" name="guests[]" id="guests1">
-        <input type="text" name="guests[]" id="guests2">
-        <input type="text" name="guests[]" id="guests3">
+        <label>Main guests</label>
+        <label for="guest1">
+          1st Guest:
+          <input type="text" name="guests[]" id="guests1">
+        </label>
+        <label for="guest2">
+          2nd Guest:
+          <input type="text" name="guests[]" id="guests2">
+        </label>
+        <label for="guest3">
+          3rd Guest:
+          <input type="text" name="guests[]" id="guests3">
+        </label>
       </div>
       <div class="input-group">
         <label for="company">Company data</label>
-        <input type="text" name="company[name]" id="company-name">
-        <input type="text" name="company[website]" id="company-website">
-        <input type="email" name="company[email]" id="company-email">
-        <input type="text" name="company[field]" id="company-field">
+        <label for="company-name">
+          company name
+          <input type="text" name="company[name]" id="company-name">
+        </label>
+        <label for="company-website">
+          company website
+          <input type="text" name="company[website]" id="company-website">
+        </label>
+        <label for="company-email">
+          company email
+          <input type="email" name="company[email]" id="company-email">
+        </label>
+        <label for="company-field">
+          company field
+          <select name="company[field]" id="company-field">
+            <option value="" selected disabled>Choose an option</option>
+            <option value="audiovisual">Audiovisual Production & Entertainment</option>
+            <option value="technology">Technology & Software Development</option>
+            <option value="renewables">Renewable Energy & Sustainability</option>
+            <option value="health">Healthcare & Biotechnology</option>
+            <option value="agroindustry">Agroindustry & Food Production</option>
+          </select>
+        </label>
       </div>
     </div>
 
@@ -144,7 +198,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="input-container">
       <div class="input-group">
         <label for="docs">Docs</label>
-        <input type="file" multiple name="docs[]" id="docs">
+        <input type="file" multiple name="docs[]" id="docs" accept="image/*">
+      </div>
+      <div class="preview-container" id="preview">
       </div>
     </div>
 
@@ -156,15 +212,53 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </div>
 
+    <?php if ($status == "success"): ?>
+      <div class="alert success" style="display: block;">
+        <h3>Email sent successfully</h3>
+      </div>
+    <?php endif; ?>
+
+    <?php if ($status == "error"): ?>
+      <div class="alert error" style="display: block;">
+        <h3>something went wrong</h3>
+      </div>
+    <?php endif; ?>
+
     <button name="form" type="submit">Send</button>
 
     <div class="contact-info">
-      <div class="info"><span>Direction</span></div>
-      <div class="info"><span>email</span></div>
-      <div class="info"><span>phone number</span></div>
+      <div class="info"><span>Address: calle 69 a bis sur #79b - 35 </span></div>
+      <div class="info"><span>email: molano.johny721@gmail.com</span></div>
+      <div class="info"><span>phone number: +57 314 309 4657</span></div>
     </div>
   </form>
-  <script></script>
+  <script>
+    const $imgInput = document.getElementById("docs");
+    const $preview = document.getElementById("preview");
+
+    $imgInput.addEventListener("change", function() {
+      $preview.innerHTML = "";
+      const files = this.files;
+
+      for (const file of files) {
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            img.style.width = "120px";
+            img.style.height = "120px";
+            img.style.objectFit = "cover";
+            img.style.margin = "5px";
+            img.style.borderRadius = "8px";
+            $preview.appendChild(img);
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

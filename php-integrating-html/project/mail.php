@@ -3,6 +3,12 @@
 require "vendor/autoload.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
+use Dotenv\Dotenv;
+
+// Cargar .env
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 function sendMail($subject, $body, $email, $name, $html = false)
 {
@@ -13,8 +19,8 @@ function sendMail($subject, $body, $email, $name, $html = false)
   $phpmailer->SMTPAuth = true;
   $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
   $phpmailer->Port = 465;
-  $phpmailer->Username = 'molano.johny721@gmail.com';
-  $phpmailer->Password = $_ENV["GMAIL_PASS"];
+  $phpmailer->Username = $_ENV['SMTP_USER'];
+  $phpmailer->Password = $_ENV['SMTP_PASS'];
 
   $phpmailer->SMTPDebug = 2;
   $phpmailer->Debugoutput = 'html';
